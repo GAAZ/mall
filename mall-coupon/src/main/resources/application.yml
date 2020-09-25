@@ -1,9 +1,10 @@
-
+server:
+  port: 8002
 
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.124.132:3305/mall_pms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://192.168.124.132:3305/mall_sms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: root
 mybatis-plus:
@@ -11,5 +12,3 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: auto
-server:
-  port: 8001

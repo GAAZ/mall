@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author DW@daiwang
  * @date 2020/9/24 13:11
  */
-@MapperScan("com.mall.product.dao")
+@MapperScan("com.mall.mallproduct.dao")
 @SpringBootApplication
 public class MallProductApplication {
 
