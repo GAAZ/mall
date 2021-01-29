@@ -1,14 +1,15 @@
 package com.mall.mallproduct;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * @author DW@daiwang
  * @date 2020/9/24 13:11
  */
-@MapperScan("com.mall.mallproduct.dao")
+
+@EnableDiscoveryClient
 @SpringBootApplication
 public class MallProductApplication {
 

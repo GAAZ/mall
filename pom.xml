@@ -20,5 +20,174 @@
         <module>renren-generator</module>
         <module>mall-common</module>
     </modules>
-    
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.4.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <!--<properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <skipTests>true</skipTests>
+        <docker.host>http://192.168.6.132:2375</docker.host>
+        <docker.maven.plugin.version>1.1.0</docker.maven.plugin.version>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
+        <pagehelper-starter.version>1.2.10</pagehelper-starter.version>
+        <pagehelper.version>5.1.8</pagehelper.version>
+        <druid.version>1.1.10</druid.version>
+        <hutool.version>4.5.7</hutool.version>
+        <swagger2.version>2.7.0</swagger2.version>
+        <mybatis-generator.version>1.3.7</mybatis-generator.version>
+        <mybatis.version>3.4.6</mybatis.version>
+        <mysql-connector.version>8.0.15</mysql-connector.version>
+        <spring-data-commons.version>2.1.5.RELEASE</spring-data-commons.version>
+        <jjwt.version>0.9.0</jjwt.version>
+        <aliyun-oss.version>2.5.0</aliyun-oss.version>
+        <logstash-logback.version>5.3</logstash-logback.version>
+        <admin-starter-server.version>2.1.5</admin-starter-server.version>
+        <minio.version>3.0.10</minio.version>
+        <mall-common.version>1.0-SNAPSHOT</mall-common.version>
+        <mall-mbg.version>1.0-SNAPSHOT</mall-mbg.version>
+        <mall-security.version>1.0-SNAPSHOT</mall-security.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            &lt;!&ndash;Spring Cloud 相关依赖&ndash;&gt;
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            &lt;!&ndash;mall通用模块&ndash;&gt;
+            <dependency>
+                <groupId>com.mall</groupId>
+                <artifactId>mall-common</artifactId>
+                <version>${mall-common.version}</version>
+            </dependency>
+            &lt;!&ndash;mall中MBG生成模块&ndash;&gt;
+          &lt;!&ndash;  <dependency>
+                <groupId>com.mall</groupId>
+                <artifactId>mall-mbg</artifactId>
+                <version>${mall-mbg.version}</version>
+            </dependency>&ndash;&gt;
+            &lt;!&ndash;mall安全模块&ndash;&gt;
+            <&lt;!&ndash;dependency>
+                <groupId>com.mall</groupId>
+                <artifactId>mall-security</artifactId>
+                <version>${mall-security.version}</version>
+            </dependency>&ndash;&gt;
+            &lt;!&ndash;MyBatis分页插件starter&ndash;&gt;
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper-starter.version}</version>
+            </dependency>
+            &lt;!&ndash;MyBatis分页插件&ndash;&gt;
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+            &lt;!&ndash;集成druid连接池&ndash;&gt;
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            &lt;!&ndash;Hutool Java工具包&ndash;&gt;
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            &lt;!&ndash;Swagger-UI API文档生产工具&ndash;&gt;
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+            &lt;!&ndash; MyBatis 生成器 &ndash;&gt;
+            <dependency>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-core</artifactId>
+                <version>${mybatis-generator.version}</version>
+            </dependency>
+            &lt;!&ndash; MyBatis&ndash;&gt;
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            &lt;!&ndash;Mysql数据库驱动&ndash;&gt;
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector.version}</version>
+            </dependency>
+            &lt;!&ndash;SpringData工具包&ndash;&gt;
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-commons</artifactId>
+                <version>${spring-data-commons.version}</version>
+            </dependency>
+            &lt;!&ndash;JWT(Json Web Token)登录支持&ndash;&gt;
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            &lt;!&ndash; 阿里云OSS &ndash;&gt;
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${aliyun-oss.version}</version>
+            </dependency>
+            &lt;!&ndash;集成logstash&ndash;&gt;
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>${logstash-logback.version}</version>
+            </dependency>
+            &lt;!&ndash;集成SpringBoot Admin监控&ndash;&gt;
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-server</artifactId>
+                <version>${admin-starter-server.version}</version>
+            </dependency>
+            &lt;!&ndash;MinIO JAVA SDK&ndash;&gt;
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>-->
 </project>
