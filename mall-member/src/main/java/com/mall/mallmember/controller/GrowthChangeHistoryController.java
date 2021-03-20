@@ -1,20 +1,14 @@
 package com.mall.mallmember.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.mall.mallmember.entity.GrowthChangeHistoryEntity;
-import com.mall.mallmember.service.GrowthChangeHistoryService;
 import com.mall.common.utils.PageUtils;
 import com.mall.common.utils.R;
+import com.mall.mallmember.entity.GrowthChangeHistoryEntity;
+import com.mall.mallmember.service.GrowthChangeHistoryService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.Map;
 
 
 
@@ -26,7 +20,7 @@ import com.mall.common.utils.R;
  * @date 2020-09-26 00:00:29
  */
 @RestController
-@RequestMapping("mallmember/growthchangehistory")
+@RequestMapping("member/growthchangehistory")
 public class GrowthChangeHistoryController {
     @Autowired
     private GrowthChangeHistoryService growthChangeHistoryService;

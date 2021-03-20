@@ -1,12 +1,13 @@
 package com.mall.mallproduct.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-
-import java.math.BigDecimal;
-import java.io.Serializable;
-import java.util.Date;
 import lombok.Data;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * spu信息
@@ -58,4 +59,9 @@ public class SpuInfoEntity implements Serializable {
 	 */
 	private Date updateTime;
 
+	/**
+	 * 品牌名
+	 */
+	@TableField(exist = false)
+	private String brandName;
 }

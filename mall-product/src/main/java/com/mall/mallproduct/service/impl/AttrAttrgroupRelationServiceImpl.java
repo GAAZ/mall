@@ -1,16 +1,20 @@
 package com.mall.mallproduct.service.impl;
 
-import org.springframework.stereotype.Service;
-import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.mall.common.utils.PageUtils;
 import com.mall.common.utils.Query;
-
 import com.mall.mallproduct.dao.AttrAttrgroupRelationDao;
 import com.mall.mallproduct.entity.AttrAttrgroupRelationEntity;
 import com.mall.mallproduct.service.AttrAttrgroupRelationService;
+import com.mall.mallproduct.vo.AttrGroupRelationVo;
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 
 @Service("attrAttrgroupRelationService")
@@ -26,4 +30,21 @@ public class AttrAttrgroupRelationServiceImpl extends ServiceImpl<AttrAttrgroupR
         return new PageUtils(page);
     }
 
+    /**
+     * 批量添加属性与分组关联关系
+     * @param vos
+     */
+    @Override
+    public void saveBatch(List<AttrGroupRelationVo> vos) {
+
+        List<AttrAttrgroupRelationEntity> collect = vos.stream().map((item) -> {
+            AttrAttrgroupRelationEntity relationEntity = new AttrAttrgroupRelationEntity();
+            BeanUtils.copyProperties(item, relationEntity);
+            return relationEntity;
+        }).collect(Collectors.toList());
+
+        this.saveBatch(collect);
+
+
+    }
 }

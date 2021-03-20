@@ -1,20 +1,15 @@
 package com.mall.mallproduct.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.mall.mallproduct.entity.SpuInfoEntity;
-import com.mall.mallproduct.service.SpuInfoService;
 import com.mall.common.utils.PageUtils;
 import com.mall.common.utils.R;
+import com.mall.mallproduct.entity.SpuInfoEntity;
+import com.mall.mallproduct.service.SpuInfoService;
+import com.mall.mallproduct.vo.SpuSaveVo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.Map;
 
 
 
@@ -26,10 +21,38 @@ import com.mall.common.utils.R;
  * @date 2020-09-24 14:21:40
  */
 @RestController
-@RequestMapping("mallproduct/spuinfo")
+@RequestMapping("product/spuinfo")
 public class SpuInfoController {
     @Autowired
     private SpuInfoService spuInfoService;
+
+    /**
+     * 根据skuId查询spu的信息
+     * @param skuId
+     * @return
+     */
+    @GetMapping(value = "/skuId/{skuId}")
+    public R getSpuInfoBySkuId(@PathVariable("skuId") Long skuId) {
+
+        SpuInfoEntity spuInfoEntity = spuInfoService.getSpuInfoBySkuId(skuId);
+
+        return R.ok().setData(spuInfoEntity);
+    }
+
+
+    /**
+     * 商品上架
+     * @param spuId
+     * @return
+     */
+    // @PostMapping(value = "/{spuId}/up")
+    // public R spuUp(@PathVariable("spuId") Long spuId) {
+    //
+    //     spuInfoService.up(spuId);
+    //
+    //     return R.ok();
+    // }
+
 
     /**
      * 列表
@@ -56,8 +79,10 @@ public class SpuInfoController {
      * 保存
      */
     @RequestMapping("/save")
-    public R save(@RequestBody SpuInfoEntity spuInfo){
-		spuInfoService.save(spuInfo);
+    public R save(@RequestBody SpuSaveVo vo){
+		//spuInfoService.save(spuInfo);
+
+        spuInfoService.saveSpuInfo(vo);
 
         return R.ok();
     }

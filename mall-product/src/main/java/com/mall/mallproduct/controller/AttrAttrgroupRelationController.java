@@ -1,20 +1,14 @@
 package com.mall.mallproduct.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.mall.mallproduct.entity.AttrAttrgroupRelationEntity;
-import com.mall.mallproduct.service.AttrAttrgroupRelationService;
 import com.mall.common.utils.PageUtils;
 import com.mall.common.utils.R;
+import com.mall.mallproduct.entity.AttrAttrgroupRelationEntity;
+import com.mall.mallproduct.service.AttrAttrgroupRelationService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.Map;
 
 
 
@@ -26,7 +20,7 @@ import com.mall.common.utils.R;
  * @date 2020-09-24 14:21:40
  */
 @RestController
-@RequestMapping("mallproduct/attrattrgrouprelation")
+@RequestMapping("product/attrattrgrouprelation")
 public class AttrAttrgroupRelationController {
     @Autowired
     private AttrAttrgroupRelationService attrAttrgroupRelationService;

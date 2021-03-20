@@ -3,7 +3,10 @@ package com.mall.mallproduct.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.mall.common.utils.PageUtils;
 import com.mall.mallproduct.entity.AttrGroupEntity;
+import com.mall.mallproduct.vo.AttrGroupWithAttrsVo;
+import com.mall.mallproduct.vo.SpuItemAttrGroupVo;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,5 +19,11 @@ import java.util.Map;
 public interface AttrGroupService extends IService<AttrGroupEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    PageUtils queryPage(Map<String, Object> params, long catelogId);
+
+    List<SpuItemAttrGroupVo> getAttrGroupWithAttrsBySpuId(Long spuId, Long catalogId);
+
+    List<AttrGroupWithAttrsVo> getAttrGroupWithAttrsByCatelogId(Long catelogId);
 }
 

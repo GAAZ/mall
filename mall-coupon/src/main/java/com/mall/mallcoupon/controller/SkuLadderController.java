@@ -1,20 +1,14 @@
 package com.mall.mallcoupon.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.mall.mallcoupon.entity.SkuLadderEntity;
-import com.mall.mallcoupon.service.SkuLadderService;
 import com.mall.common.utils.PageUtils;
 import com.mall.common.utils.R;
+import com.mall.mallcoupon.entity.SkuLadderEntity;
+import com.mall.mallcoupon.service.SkuLadderService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.Map;
 
 
 
@@ -26,7 +20,7 @@ import com.mall.common.utils.R;
  * @date 2020-09-25 23:52:35
  */
 @RestController
-@RequestMapping("mallcoupon/skuladder")
+@RequestMapping("coupon/skuladder")
 public class SkuLadderController {
     @Autowired
     private SkuLadderService skuLadderService;
